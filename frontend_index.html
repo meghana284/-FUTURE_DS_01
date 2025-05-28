@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Accident Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        /* Embed basic styles for immediate visual */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #1a1a2e; color: #e0e0e0; }
+        .dashboard-header { background-color: #0f0f1d; padding: 20px; text-align: center; font-size: 2em; font-weight: bold; color: #4CAF50; }
+        .filters { display: flex; justify-content: flex-end; padding: 15px; background-color: #2a2a4a; gap: 10px; }
+        .filter-group label { margin-right: 5px; }
+        .filter-group select { padding: 5px; border-radius: 4px; background-color: #3b3b6b; color: #e0e0e0; border: 1px solid #5a5a8a; }
+        .kpi-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
+        .kpi-card { background-color: #2a2a4a; border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        .kpi-card .value { font-size: 2.5em; font-weight: bold; color: #00bcd4; margin-bottom: 5px; }
+        .kpi-card .label { font-size: 0.9em; color: #a0a0a0; }
+        .kpi-card .change { font-size: 0.8em; margin-top: 5px; }
+        .kpi-card .change.positive { color: #8bc34a; }
+        .kpi-card .change.negative { color: #ef5350; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
+        .chart-container { background-color: #2a2a4a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        .chart-container h3 { margin-top: 0; color: #e0e0e0; border-bottom: 1px solid #4a4a6a; padding-bottom: 10px; margin-bottom: 15px; }
+        #map { height: 400px; width: 100%; border-radius: 8px; }
+        canvas { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">ROAD ACCIDENT ANALYSIS</div>
+
+    <div class="filters">
+        <div class="filter-group">
+            <label for="year-filter">Year:</label>
+            <select id="year-filter">
+                </select>
+        </div>
+        <div class="filter-group">
+            <label for="road-surface-filter">Road Surface:</label>
+            <select id="road-surface-filter">
+                <option value="All">All</option>
+                <option value="Dry">Dry</option>
+                <option value="Wet">Wet</option>
+                <option value="Snow">Snow</option>
+                <option value="Ice">Ice</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="weather-conditions-filter">Weather Conditions:</label>
+            <select id="weather-conditions-filter">
+                <option value="All">All</option>
+                <option value="Fine no high winds">Fine no high winds</option>
+                <option value="Raining no high winds">Raining no high winds</option>
+                <option value="Fog or mist">Fog or mist</option>
+                <option value="Snowing no high winds">Snowing no high winds</option>
+                <option value="Cloudy">Cloudy</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="kpi-cards">
+        <div class="kpi-card">
+            <div class="value" id="total-casualties-kpi">0</div>
+            <div class="label">Total Casualties (<span id="kpi-year-label">CY</span>)</div>
+            <div class="change" id="total-casualties-change"></div>
+        </div>
+        <div class="kpi-card">
+            <div class="value" id="total-accidents-kpi">0</div>
+            <div class="label">Total Accidents (<span id="kpi-year-label-accidents">CY</span>)</div>
+            <div class="change" id="total-accidents-change"></div>
+        </div>
+        <div class="kpi-card">
+            <div class="value" id="fatal-casualties-kpi">0</div>
+            <div class="label">Fatal Casualties (<span id="kpi-year-label-fatal">CY</span>)</div>
+            <div class="change" id="fatal-casualties-change"></div>
+        </div>
+        <div class="kpi-card">
+            <div class="value" id="serious-casualties-kpi">0</div>
+            <div class="label">Serious Casualties (<span id="kpi-year-label-serious">CY</span>)</div>
+            <div class="change" id="serious-casualties-change"></div>
+        </div>
+        <div class="kpi-card">
+            <div class="value" id="slight-casualties-kpi">0</div>
+            <div class="label">Slight Casualties (<span id="kpi-year-label-slight">CY</span>)</div>
+            <div class="change" id="slight-casualties-change"></div>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="chart-container">
+            <h3>Casualties by Vehicle Type</h3>
+            <canvas id="vehicleTypeChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Monthly Casualty Trend (CY vs PY)</h3>
+            <canvas id="monthlyTrendChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Casualties by Urban/Rural</h3>
+            <canvas id="urbanRuralChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Casualties by Road Type</h3>
+            <canvas id="roadTypeChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Casualties by Light Condition</h3>
+            <canvas id="lightConditionChart"></canvas>
+        </div>
+        <div class="chart-container" style="grid-column: span 2;">
+            <h3>Casualties by Location</h3>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

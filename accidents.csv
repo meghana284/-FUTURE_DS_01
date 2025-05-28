@@ -1,0 +1,31 @@
+Accident_ID,Date,Time,Location_Lat,Location_Long,Region,City,Road_Surface,Weather_Conditions,Light_Condition,Road_Type,Vehicle_Type,Number_of_Casualties,Severity_Casualty,Urban_Rural,Age_Band_Casualty,Gender_Casualty,Drunk_Driving_Involved,Speed_Limit
+A001,2023-01-15,08:30,51.5074,-0.1278,England,London,Dry,Fine no high winds,Daylight,Single carriageway,Car,1,Slight,Urban,31-45,Female,FALSE,30
+A002,2023-01-20,17:45,53.4808,-2.2426,England,Manchester,Wet,Raining no high winds,Darkness - lights lit,Dual carriageway,Motorcycle,1,Serious,Urban,21-30,Male,FALSE,40
+A003,2023-02-10,11:00,55.9533,-3.1883,Scotland,Edinburgh,Dry,Fine no high winds,Daylight,Roundabout,Bus,5,Slight,Urban,16-20,Unknown,FALSE,30
+A004,2023-02-25,22:15,51.4816,-0.0093,England,London,Wet,Fog or mist,Darkness - no street lighting,Motorway,Van,1,Fatal,Rural,46-60,Male,TRUE,70
+A005,2023-03-05,09:00,53.8008,-1.5491,England,Leeds,Dry,Fine no high winds,Daylight,Single carriageway,Car,2,Slight,Urban,0-5,Female,FALSE,30
+A006,2023-03-12,14:30,51.4545,-2.5879,England,Bristol,Wet,Snowing no high winds,Daylight,Dual carriageway,Agricultural Vehicle,1,Serious,Rural,61+,Male,FALSE,50
+A007,2023-04-01,10:10,53.3888,-1.4704,England,Sheffield,Dry,Fine no high winds,Daylight,Single carriageway,Motorcycle,1,Slight,Urban,21-30,Male,FALSE,30
+A008,2023-04-18,19:00,52.4862,-1.8904,England,Birmingham,Dry,Cloudy,Darkness - lights lit,Roundabout,Car,1,Slight,Urban,31-45,Female,FALSE,40
+A009,2023-05-03,07:00,50.7184,-3.5271,England,Exeter,Wet,Raining no high winds,Darkness - lights lit,Single carriageway,Van,1,Serious,Rural,16-20,Male,FALSE,60
+A010,2023-05-20,16:00,54.9783,-1.6178,England,Newcastle,Dry,Fine no high winds,Daylight,Dual carriageway,Bus,3,Slight,Urban,0-5,Unknown,FALSE,30
+A011,2023-06-05,13:00,51.5074,-0.1278,England,London,Dry,Fine no high winds,Daylight,Single carriageway,Car,1,Slight,Urban,31-45,Female,FALSE,30
+A012,2023-06-18,18:00,53.4808,-2.2426,England,Manchester,Wet,Raining no high winds,Darkness - lights lit,Dual carriageway,Motorcycle,1,Serious,Urban,21-30,Male,FALSE,40
+A013,2023-07-02,09:30,55.9533,-3.1883,Scotland,Edinburgh,Dry,Fine no high winds,Daylight,Roundabout,Bus,2,Slight,Urban,16-20,Unknown,FALSE,30
+A014,2023-07-15,21:00,51.4816,-0.0093,England,London,Wet,Fog or mist,Darkness - no street lighting,Motorway,Van,1,Fatal,Rural,46-60,Male,TRUE,70
+A015,2023-08-01,10:00,53.8008,-1.5491,England,Leeds,Dry,Fine no high winds,Daylight,Single carriageway,Car,1,Slight,Urban,0-5,Female,FALSE,30
+A016,2023-08-10,15:00,51.4545,-2.5879,England,Bristol,Wet,Snowing no high winds,Daylight,Dual carriageway,Agricultural Vehicle,1,Serious,Rural,61+,Male,FALSE,50
+A017,2023-09-01,11:00,53.3888,-1.4704,England,Sheffield,Dry,Fine no high winds,Daylight,Single carriageway,Motorcycle,1,Slight,Urban,21-30,Male,FALSE,30
+A018,2023-15,18:30,52.4862,-1.8904,England,Birmingham,Dry,Cloudy,Darkness - lights lit,Roundabout,Car,1,Slight,Urban,31-45,Female,FALSE,40
+A019,2023-10-01,08:00,50.7184,-3.5271,England,Exeter,Wet,Raining no high winds,Darkness - lights lit,Single carriageway,Van,1,Serious,Rural,16-20,Male,FALSE,60
+A020,2023-10-20,17:00,54.9783,-1.6178,England,Newcastle,Dry,Fine no high winds,Daylight,Dual carriageway,Bus,2,Slight,Urban,0-5,Unknown,FALSE,30
+A021,2024-01-10,09:00,51.5074,-0.1278,England,London,Dry,Fine no high winds,Daylight,Single carriageway,Car,1,Slight,Urban,31-45,Female,FALSE,30
+A022,2024-01-25,16:30,53.4808,-2.2426,England,Manchester,Wet,Raining no high winds,Darkness - lights lit,Dual carriageway,Motorcycle,1,Serious,Urban,21-30,Male,FALSE,40
+A023,2024-02-05,10:00,55.9533,-3.1883,Scotland,Edinburgh,Dry,Fine no high winds,Daylight,Roundabout,Bus,4,Slight,Urban,16-20,Unknown,FALSE,30
+A024,2024-02-20,20:00,51.4816,-0.0093,England,London,Wet,Fog or mist,Darkness - no street lighting,Motorway,Van,1,Fatal,Rural,46-60,Male,TRUE,70
+A025,2024-03-01,08:45,53.8008,-1.5491,England,Leeds,Dry,Fine no high winds,Daylight,Single carriageway,Car,1,Slight,Urban,0-5,Female,FALSE,30
+A026,2024-03-15,14:00,51.4545,-2.5879,England,Bristol,Wet,Snowing no high winds,Daylight,Dual carriageway,Agricultural Vehicle,1,Serious,Rural,61+,Male,FALSE,50
+A027,2024-04-05,10:30,53.3888,-1.4704,England,Sheffield,Dry,Fine no high winds,Daylight,Single carriageway,Motorcycle,1,Slight,Urban,21-30,Male,FALSE,30
+A028,2024-04-20,19:30,52.4862,-1.8904,England,Birmingham,Dry,Cloudy,Darkness - lights lit,Roundabout,Car,1,Slight,Urban,31-45,Female,FALSE,40
+A029,2024-05-07,07:30,50.7184,-3.5271,England,Exeter,Wet,Raining no high winds,Darkness - lights lit,Single carriageway,Van,1,Serious,Rural,16-20,Male,FALSE,60
+A030,2024-05-25,16:00,54.9783,-1.6178,England,Newcastle,Dry,Fine no high winds,Daylight,Dual carriageway,Bus,2,Slight,Urban,0-5,Unknown,FALSE,30
